@@ -8,14 +8,14 @@ Created on Sun Mar 31 23:53:19 2019
 #!/bin/python3.6
 
 api_key="689136764b63eec9cdda8c472bfb4ade"
-openwathermap_api_key="fea5818d9b0df04a9ed640796a31b06e"
+openweathermap_api_key="fea5818d9b0df04a9ed640796a31b06e"
 import urllib.request
 import json
 import mysql.connector
 from datetime import datetime
 
 def owm(query):
-    api_key = openwathermap_api_key
+    api_key = openweathermap_api_key
     url = "https://api.openweathermap.org/data/2.5/find?q="
     location = query.replace(" ", "%20")
     final_url = url + location + "&units=metric&APPID=" + api_key
@@ -27,5 +27,7 @@ def owm(query):
     country =  data["list"][0]["sys"]["country"]
     temp = str(data["list"][0]["main"]["temp"])
     weather = data["list"][0]["weather"][0]["main"]
-    
-    print(city, "(" + country + ")", temp + "C", weather, time)
+    return(city, country, temp + "C", weather, time)
+
+def print_owm(query):
+    print(owm(query))
