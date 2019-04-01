@@ -11,7 +11,8 @@ api_key="689136764b63eec9cdda8c472bfb4ade"
 openwathermap_api_key="fea5818d9b0df04a9ed640796a31b06e"
 import urllib.request
 import json
-
+import mysql.connector
+from datetime import datetime
 
 def owm(query):
     api_key = openwathermap_api_key
@@ -20,4 +21,11 @@ def owm(query):
     final_url = url + location + "&units=metric&APPID=" + api_key
     json_obj = urllib.request.urlopen(final_url)
     data = json.load(json_obj)
-    print(data["list"][0]["name"], data["list"][0]["sys"]["country"], str(data["list"][0]["main"]["temp"]) + "C", data["list"][0]["weather"][0]["main"])
+    unix_time = data["list"][0]["dt"]
+    time = datetime.utcfromtimestamp(unix_time).strftime('%Y-%m-%d %H:%M:%S')
+    city = data["list"][0]["name"]
+    country =  data["list"][0]["sys"]["country"]
+    temp = str(data["list"][0]["main"]["temp"])
+    weather = data["list"][0]["weather"][0]["main"]
+    
+    print(city, "(" + country + ")", temp + "C", weather, time)
