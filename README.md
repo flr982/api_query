@@ -8,7 +8,7 @@ This app will query https://api.openweathermap.org for weather data for specific
 
 api_query.py contains one function: owm. It takes the city name as parameter and returns: City name, country code, temperature in C, weather description, and time of last update.
 The result is also printed to console:
-# python3.6
+python3.6
 Python 3.6.7 (default, Dec  5 2018, 15:02:05)
 [GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
