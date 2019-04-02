@@ -9,8 +9,9 @@ This app will query https://api.openweathermap.org for weather data for specific
 api_query.py contains one function: owm. It takes the city name as parameter and returns: City name, country code, temperature in C, weather description, and time of last update.
 The result is also printed to console:
 ```
-owm('Berlin')
+>>> owm('Berlin')
 ('Berlin', 'DE', '3.2C', 'Clear', '2019-04-02 01:47:24')
+>>>
 ```
 
 db.py contains 2 functions: add_to_db and query_db.
@@ -41,9 +42,10 @@ The table looks like this:
 query_db takes as argument the name of a city and returns all the information for that city from the db.
 Sample output:
 ```
-query_db("London")
+>>> query_db("London")
 (1, 'London', 'GB', 4, 'Clouds', '2019-04-02 00:35:12')
 (8, 'London', 'GB', 4, 'Clouds', '2019-04-02 00:35:12')
+>>>
 ```
 
 
