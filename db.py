@@ -17,10 +17,6 @@ mycursor = mydb.cursor()
 def add_to_db(item):
     wtr = aq.owm(item)
     print(wtr)
-#    db = "weather_db"
-#    tbl = "weather_table"
-#    mydb = mysql.connector.connect(host="localhost")
-#    mycursor = mydb.cursor()
     # create database if not present
     mycursor.execute("CREATE DATABASE IF NOT EXISTS " + db)
     mycursor.execute("use " + db)
@@ -37,8 +33,6 @@ def add_to_db(item):
 
 def query_db(query):
     mycursor.execute("use " + db)
-#    sql = "SELECT * FROM " + tbl + " WHERE city=" %s
-#    val = ("
     mycursor.execute("SELECT * FROM " + tbl + " WHERE city=" + '"' + query + '"')
     result = mycursor.fetchall()
     for row in result:
