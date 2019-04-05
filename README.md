@@ -8,19 +8,17 @@ This app will query https://api.openweathermap.org for weather data for specific
 
 api_query.py contains one function: owm. It takes the city name as parameter and returns: City name, country code, temperature in C, weather description, and time of last update.
 The result is also printed to console:
-python3.6
-Python 3.6.7 (default, Dec  5 2018, 15:02:05)
-[GCC 4.8.5 20150623 (Red Hat 4.8.5-36)] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> from api_query import owm
+```
 >>> owm('Berlin')
 ('Berlin', 'DE', '3.2C', 'Clear', '2019-04-02 01:47:24')
 >>>
+```
 
 db.py contains 2 functions: add_to_db and query_db.
 
 add_to_db imports api_query and calls owm function. It adds the output to a database. It creates the db and table if they are missing. The function prints where the info was inserted and what was the line number.
 The table looks like this:
+```
 +-------------+-----------+---------+--------+---------+---------------------+
 | query_index | city      | country | temp_C | weather | last_update         |
 +-------------+-----------+---------+--------+---------+---------------------+
@@ -39,12 +37,15 @@ The table looks like this:
 |          13 | Warsaw    | PL      |      1 | Clear   | 2019-04-02 01:35:58 |
 |          14 | Warsaw    | PL      |      1 | Clear   | 2019-04-02 01:35:58 |
 +-------------+-----------+---------+--------+---------+---------------------+
+```
 
 query_db takes as argument the name of a city and returns all the information for that city from the db.
 Sample output:
+```
 >>> query_db("London")
 (1, 'London', 'GB', 4, 'Clouds', '2019-04-02 00:35:12')
 (8, 'London', 'GB', 4, 'Clouds', '2019-04-02 00:35:12')
 >>>
+```
 
 

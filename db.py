@@ -38,8 +38,6 @@ def add_to_db(item):
 def query_db(query):
     mycursor.execute(f"use {db}")
     mycursor.execute(f"SELECT * FROM {tbl} WHERE city=\"{query}\"")
-    #mycursor.execute(f"SELECT * FROM {tbl} WHERE city=" + '"' + query + '"')
-    #mycursor.execute("SELECT * FROM " + tbl + " WHERE city=" + '"' + query + '"')
     result = mycursor.fetchall()
     for row in result:
         print(row)
