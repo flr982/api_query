@@ -16,7 +16,7 @@ from datetime import datetime
 def owm(query):
     url = "https://api.openweathermap.org/data/2.5/find?q="
     location = query.replace(" ", "%20")
-    final_url = url + location + "&units=metric&APPID=" + api_key
+    final_url = f"{url}{location}&units=metric&APPID={api_key}"
     json_obj = urllib.request.urlopen(final_url)
     data = json.load(json_obj)
     unix_time = data["list"][0]["dt"]
